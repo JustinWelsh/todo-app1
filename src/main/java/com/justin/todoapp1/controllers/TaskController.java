@@ -20,6 +20,7 @@ public class TaskController {
 //    TODO: Implement C.R.U.D functionality
 
     //TODO: Read functionality
+    @CrossOrigin
     @GetMapping
     @ResponseBody
     public List<Task> getAllTasks() {
@@ -29,6 +30,7 @@ public class TaskController {
     //TODO: Create functionality
     // @ResponseBody: Formats the response in a standard JSON format
     // @RequestBody: Is a parameter that accepts an object that matches one of your models
+    @CrossOrigin
     @PostMapping
     @ResponseBody
     public Task createOrUpdateTask(@RequestBody Task task) {
@@ -36,6 +38,7 @@ public class TaskController {
     }
 
     //TODO: Delete functionality
+    @CrossOrigin
     @DeleteMapping
     @ResponseBody
     public List<Task> deleteTask(@RequestBody Task task) {
