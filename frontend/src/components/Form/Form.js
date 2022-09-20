@@ -5,8 +5,8 @@ const Form = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
 
-        console.log(e.target[0].value);
-        console.log(e.target[1].value);
+        // console.log(e.target[0].value);
+        // console.log(e.target[1].value);
 
         const taskObj = {
             description: e.target[0].value,
