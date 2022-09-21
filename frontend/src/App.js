@@ -1,6 +1,7 @@
 import './App.css';
 import Form from "./components/Form/Form";
 import {useEffect, useState} from "react";
+import TaskCard from "./components/TaskCard/TaskCard";
 
 function App() {
     // useState variables
@@ -21,14 +22,12 @@ function App() {
     // UI
   return (
     <div>
-      <Form />
-        {tasks.map((task, index) => (
-            <div key={index}>
-                <p>{task.id}</p>
-                <p>{task.description}</p>
-                <p>{task.priority}</p>
-            </div>
-        ))}
+      <Form getAllTasks={getAllTasks}/>
+        <div className="flex flex-wrap justify-center gap-1">
+            {tasks.map((task, index) => (
+                <TaskCard task={task} getAllTasks={getAllTasks}  key={index}/>
+            ))}
+        </div>
     </div>
   );
 }

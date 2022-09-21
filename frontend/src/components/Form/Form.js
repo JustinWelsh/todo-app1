@@ -1,7 +1,7 @@
 import {Input} from "react-daisyui";
 import {logDOM} from "@testing-library/react";
 
-const Form = () => {
+const Form = ({ getAllTasks }) => {
     const onSubmit = async (e) => {
         e.preventDefault();
 
@@ -20,8 +20,11 @@ const Form = () => {
             },
             method: 'POST',
             body: JSON.stringify(taskObj) // body data type must match "Content-Type" header
-        }).then(res => res.json())
-            .then(data => console.log(data))
+        }).then(res => {
+            if (res.json()) {
+                getAllTasks()
+            }
+        })
     }
 
 
@@ -30,7 +33,6 @@ const Form = () => {
 
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
-
 
                     <h2 className="card-title">Form</h2>
 
@@ -44,7 +46,7 @@ const Form = () => {
                         <div>
                             <label htmlFor="task-priority">Priority</label>
                             <select id={"task-priority"} name={"priority"} className="select select-bordered w-full max-w-xs">
-                                <option>None</option>
+                                <option> </option>
                                 <option>Low</option>
                                 <option>High</option>
                             </select>
@@ -54,7 +56,6 @@ const Form = () => {
                             <button type={"submit"} className="btn btn-primary">Add</button>
                         </div>
                     </form>
-
 
                 </div>
             </div>
