@@ -1,4 +1,4 @@
-const TaskCard = ({ task, getAllTasks }) => {
+const TaskCard = ({ task, getAllTasks, toggleVisible}) => {
     const onDelete = async (e) => {
         e.preventDefault();
 
@@ -23,7 +23,7 @@ const TaskCard = ({ task, getAllTasks }) => {
                 <h2 className="card-title">{task.priority}</h2>
                 <p>{task.description}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-xs btn-primary">Edit</button>
+                    <button className="btn btn-xs btn-primary" onClick={toggleVisible}>Edit</button>
                     <button className="btn btn-xs btn-ghost" onClick={onDelete}>Delete</button>
                 </div>
             </div>

@@ -47,8 +47,8 @@ const Form = ({ getAllTasks }) => {
                             <label htmlFor="task-priority">Priority</label>
                             <select id={"task-priority"} name={"priority"} className="select select-bordered w-full max-w-xs">
                                 <option> </option>
-                                <option>Low</option>
                                 <option>High</option>
+                                <option>Low</option>
                             </select>
                         </div>
 
