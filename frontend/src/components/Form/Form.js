@@ -40,6 +40,10 @@ const Form = ({ getAllTasks, selectedTask, toggleVisible }) => {
         }).then(res => {
             if (res.json()) {
                 getAllTasks()
+                setTask({
+                    description: "",
+                    priority: ""
+                })
             }
         })
     }
@@ -54,7 +58,7 @@ const Form = ({ getAllTasks, selectedTask, toggleVisible }) => {
                     <div className={"flex flex-col gap-y-7\t"}>
                         <div>
                             <label htmlFor="task-description">New task</label>
-                            <input id="task-description" name={"description"} onChange={onChange} type="text" placeholder="type here.." className="input input-bordered input-primary w-full max-w-xs" value={task?.description} />
+                            <input id="task-description" name={"description"} onChange={onChange} type="text" placeholder="Description" className="input input-bordered input-primary w-full max-w-xs" value={task?.description} />
                         </div>
                         <div>
                             <label htmlFor="task-priority">Priority</label>
