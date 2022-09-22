@@ -1,18 +1,13 @@
 import {Button, Modal} from "react-daisyui";
 import Form from "../Form/Form";
 
-const EditModal = ({ visible, toggleVisible }) => {
+const EditModal = ({ visible, toggleVisible, selectedTask, getAllTasks }) => {
     return (
         <div className="font-sans">
             <Modal open={visible}>
                 <Modal.Body>
-                    <Form />
+                    <Form selectedTask={selectedTask} toggleVisible={toggleVisible} getAllTasks={getAllTasks}/>
                 </Modal.Body>
-
-                <Modal.Actions>
-                    <Button onClick={toggleVisible}>Yay!</Button>
-                </Modal.Actions>
-
             </Modal>
         </div>
     )

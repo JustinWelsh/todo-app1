@@ -9,6 +9,7 @@ function App() {
     // useState variables
     const [tasks, setTasks] = useState([])
     const [visible, setVisible] = useState(false)
+    const [selectedTask, setSelectedTask] = useState(null)
 
     // useEffect function(s)
     useEffect(() => {
@@ -32,10 +33,10 @@ function App() {
       <Form getAllTasks={getAllTasks}/>
         <div className="flex flex-wrap justify-center gap-1">
             {tasks.map((task, index) => (
-                <TaskCard task={task} getAllTasks={getAllTasks} toggleVisible={toggleVisible}  key={index}/>
+                <TaskCard task={task} getAllTasks={getAllTasks} toggleVisible={toggleVisible} setSelectedTask={setSelectedTask}  key={index}/>
             ))}
         </div>
-        <EditModal visible={visible} toggleVisible={toggleVisible}/>
+        <EditModal visible={visible} getAllTasks={getAllTasks} toggleVisible={toggleVisible} selectedTask={selectedTask}/>
     </div>
   );
 }
